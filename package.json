@@ -16,8 +16,8 @@
         "tauri": "tauri",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
-        "format": "prettier --write .",
-        "ci": "npm run lint && prettier --check ."
+        "format": "prettier --write src",
+        "ci": "npm run lint && prettier --check src"
     },
     "dependencies": {
         "@fontsource-variable/outfit": "^5.2.8",
@@ -28,11 +28,15 @@
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "lucide-react": "^0.577.0",
+        "next-themes": "^0.4.6",
         "radix-ui": "^1.4.3",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
         "react-hook-form": "^7.71.2",
+        "react-icons": "^5.6.0",
+        "react-router-dom": "^6.30.3",
         "shadcn": "^4.0.5",
+        "sonner": "^2.0.7",
         "tailwind-merge": "^3.5.0",
         "tailwindcss": "^4.2.1",
         "tw-animate-css": "^1.4.0",
@@ -41,8 +45,10 @@
     "devDependencies": {
         "@tauri-apps/cli": "^2",
         "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+        "@types/node": "^25.5.0",
         "@types/react": "^19.1.8",
         "@types/react-dom": "^19.1.6",
+        "@types/react-icons": "^2.2.7",
         "@vitejs/plugin-react": "^4.6.0",
         "eslint": "^9.39.4",
         "eslint-config-prettier": "^10.1.8",

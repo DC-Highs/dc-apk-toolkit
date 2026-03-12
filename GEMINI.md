@@ -52,6 +52,28 @@ cd src-tauri ; cargo tarpaulin
 | Trailing Commas | All                    |
 | Import Sorting  | By length (descending) |
 
+### Componentes Disponíveis
+
+Para adicionar um novo componente, use: `npx shadcn@latest add <nome-do-componente>` (em lowercase kebab-case).
+
+|                    |                  |               |                 |
+| ------------------ | ---------------- | ------------- | --------------- |
+| Accordion          | Alert            | Alert Dialog  | Aspect Ratio    |
+| Avatar             | Badge            | Breadcrumb    | Button          |
+| Button Group       | Calendar         | Card          | Carousel        |
+| Chart              | Checkbox         | Collapsible   | Combobox        |
+| Command            | Context Menu     | Data Table    | Date Picker     |
+| Dialog             | Direction        | Drawer        | Dropdown Menu   |
+| Empty              | **Field** (Form) | Hover Card    | Input           |
+| Input Group        | Input OTP        | Item          | Kbd             |
+| Label              | Menubar          | Native Select | Navigation Menu |
+| Pagination         | Popover          | Progress      | Radio Group     |
+| Resizable          | Scroll Area      | Select        | Separator       |
+| Sheet              | Sidebar          | Skeleton      | Slider          |
+| **Sonner** (Toast) | Spinner          | Switch        | Table           |
+| Tabs               | Textarea         | Toggle        | Toggle Group    |
+| Tooltip            |                  |               |
+
 ### TypeScript (Strict Mode)
 
 - Always enable strict type checking
@@ -181,8 +203,8 @@ Vou separar em **4 blocos** para ficar claro.
 
 Primeiro precisamos definir:
 
-* **Nome do aplicativo**
-* **ID do bundle**
+- **Nome do aplicativo**
+- **ID do bundle**
 
 Exemplo:
 
@@ -220,9 +242,9 @@ Sugestão de MVP:
 
 ### Não incluir ainda (v2)
 
-* Unity asset parser
-* sprite atlas extractor
-* il2cpp tools
+- Unity asset parser
+- sprite atlas extractor
+- il2cpp tools
 
 ---
 
@@ -236,9 +258,9 @@ APKMirror
 
 Prós:
 
-* confiável
-* versões históricas
-* assinatura original
+- confiável
+- versões históricas
+- assinatura original
 
 ---
 
@@ -248,8 +270,8 @@ APKPure
 
 Prós:
 
-* fornece **XAPK**
-* mais fácil de baixar
+- fornece **XAPK**
+- mais fácil de baixar
 
 ---
 
@@ -341,9 +363,9 @@ res/
 
 Para seu app funcionar precisamos liberar no `tauri.conf.json`:
 
-* filesystem
-* http
-* dialog
+- filesystem
+- http
+- dialog
 
 Exemplo:
 
@@ -424,10 +446,10 @@ interface ApkVersion {
 
 💡 Depois que você responder, eu consigo te entregar:
 
-* **arquitetura completa do projeto**
-* **código Rust inicial**
-* **serviço de download automático**
-* **scraper da última versão**
-* **UI React pronta**
+- **arquitetura completa do projeto**
+- **código Rust inicial**
+- **serviço de download automático**
+- **scraper da última versão**
+- **UI React pronta**
 
 Basicamente **o projeto já funcionando em ~300–400 linhas de código**.
