@@ -169,3 +169,265 @@ Before committing (if git is initialized):
 2. Run `npm run lint` to check for errors
 3. Ensure `npm run build` succeeds
 4. Verify no secrets or keys are committed
+
+Ótimo — com esse **AGENTS.md** já dá para entender bem o ambiente do projeto. 👍
+Para eu conseguir **iniciar o desenvolvimento do seu Dragon City Toolkit** dentro desse template **Tauri + React**, ainda preciso de algumas definições de produto e algumas informações técnicas.
+
+Vou separar em **4 blocos** para ficar claro.
+
+---
+
+# 1️⃣ Nome e identidade do app
+
+Primeiro precisamos definir:
+
+* **Nome do aplicativo**
+* **ID do bundle**
+
+Exemplo:
+
+```
+App Name: Dragon City Toolkit
+Bundle ID: com.yourname.dragoncitytoolkit
+```
+
+Isso vai no `tauri.conf.json`.
+
+---
+
+# 2️⃣ Funcionalidades da primeira versão (MVP)
+
+Você já mencionou várias ideias, mas precisamos decidir **o que entra na v1**.
+
+Sugestão de MVP:
+
+### Core
+
+1. **Buscar última versão do Dragon City**
+2. **Baixar APK / XAPK**
+3. **Extrair arquivos**
+4. **Abrir pasta extraída**
+
+---
+
+### Viewer básico
+
+5. **Navegador de arquivos**
+6. **Preview de imagens**
+7. **Preview de JSON**
+
+---
+
+### Não incluir ainda (v2)
+
+* Unity asset parser
+* sprite atlas extractor
+* il2cpp tools
+
+---
+
+# 3️⃣ Fonte do APK
+
+Preciso saber qual fonte você quer usar.
+
+### Opção A (recomendado)
+
+APKMirror
+
+Prós:
+
+* confiável
+* versões históricas
+* assinatura original
+
+---
+
+### Opção B
+
+APKPure
+
+Prós:
+
+* fornece **XAPK**
+* mais fácil de baixar
+
+---
+
+### Pergunta importante
+
+Você prefere:
+
+A️⃣ APKMirror (mais seguro)
+B️⃣ APKPure (mais fácil)
+C️⃣ Suporte aos dois
+
+---
+
+# 4️⃣ Arquitetura do backend Rust
+
+Preciso saber algumas decisões técnicas.
+
+### Download library
+
+Rust tem duas opções comuns:
+
+**Recomendado**
+
+```
+reqwest
+tokio
+```
+
+---
+
+### Extração de arquivos
+
+```
+zip
+walkdir
+```
+
+---
+
+### Parsing opcional
+
+Se quiser ler APK metadata:
+
+```
+apkparser
+```
+
+---
+
+# 5️⃣ Interface (React)
+
+Preciso saber qual layout você quer.
+
+### Layout simples
+
+```
+Sidebar
+ ├ Dashboard
+ ├ Downloader
+ ├ Extractor
+ └ Assets
+
+Main View
+```
+
+---
+
+### ou interface minimalista
+
+```
+Dragon City Toolkit
+
+[ Check Latest Version ]
+
+Version: 26.2.0
+
+[ Download ]
+[ Extract ]
+
+Files:
+assets/
+lib/
+res/
+```
+
+---
+
+# 6️⃣ Permissões Tauri
+
+Para seu app funcionar precisamos liberar no `tauri.conf.json`:
+
+* filesystem
+* http
+* dialog
+
+Exemplo:
+
+```
+tauri > permissions
+```
+
+---
+
+# 7️⃣ Estrutura Rust sugerida
+
+```
+src-tauri/src/
+
+main.rs
+commands/
+   download.rs
+   extract.rs
+   version.rs
+services/
+   apkmirror.rs
+   extractor.rs
+models/
+   apk.rs
+```
+
+---
+
+# 8️⃣ Estrutura React
+
+Seguindo seu GEMINI.md:
+
+```
+src/
+
+components/
+   providers/
+   ui/
+
+services/
+   apk-service.ts
+   extractor-service.ts
+
+schemas/
+   apk-schema.ts
+
+types/
+   apk.ts
+```
+
+---
+
+# 9️⃣ Tipos TypeScript necessários
+
+Exemplo:
+
+```ts
+interface ApkVersion {
+    version: string
+    url: string
+    size: number
+    releaseDate: string
+}
+```
+
+---
+
+# 🔟 Afirmativas importantes
+
+1️⃣ DC APK Toolkit
+2️⃣ Fonte do APK (APKMirror)
+3️⃣ Só **Dragon City**
+4️⃣ **Asset Viewer** já na v1
+5️⃣ Interface com **sidebar**
+6️⃣ Pasta padrão de extração (ex: `~/DCApkToolkit/`)
+
+---
+
+💡 Depois que você responder, eu consigo te entregar:
+
+* **arquitetura completa do projeto**
+* **código Rust inicial**
+* **serviço de download automático**
+* **scraper da última versão**
+* **UI React pronta**
+
+Basicamente **o projeto já funcionando em ~300–400 linhas de código**.
