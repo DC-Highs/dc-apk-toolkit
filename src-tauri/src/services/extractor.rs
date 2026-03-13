@@ -41,33 +41,56 @@ fn extract_zip(zip_path: &Path, out_path: &Path, app: &AppHandle, prefix: &str) 
 }
 
 pub fn extract_apk(file_path: &str, output_dir: &str, app: &AppHandle) -> Result<(), String> {
-    let out_path = Path::new(output_dir);
+    let out_path = PathBuf::from(output_dir);
     if !out_path.exists() {
-        fs::create_dir_all(out_path).map_err(|e| e.to_string())?;
+        fs::create_dir_all(&out_path).map_err(|e| e.to_string())?;
     }
 
-    // Pass 1: Extract the main package (v2: could be XAPK or APK)
-    let initial_paths = extract_zip(Path::new(file_path), out_path, app, "")?;
+    // Pass 1: Extract the main package
+    let _ = extract_zip(Path::new(file_path), &out_path, app, "")?;
 
-    // Pass 2: If we find a main APK inside (common in XAPKs), extract it too
-    // We look for common names like the package id or base.apk
-    let inner_apk = initial_paths.iter().find(|p| {
-        let name = p.file_name().unwrap_or_default().to_string_lossy();
-        name == "es.socialpoint.DragonCity.apk" || name == "base.apk"
+    // Multi-pass extraction for common nested APKs
+    let nested_apk_names = ["base.apk", "es.socialpoint.DragonCity.apk", "android_asset_pack.apk"];
+    
+    // We'll do a few passes to ensure we get nested assets (in case an APK is inside another APK)
+    for _ in 0..2 {
+        let mut found_any = false;
+        let mut to_extract = Vec::new();
+        
+        for entry in walkdir::WalkDir::new(&out_path).into_iter().flatten() {
+            if entry.file_type().is_file() {
+                let name = entry.file_name().to_string_lossy();
+                if nested_apk_names.contains(&name.as_ref()) {
+                    to_extract.push(entry.path().to_path_buf());
+                }
+            }
+        }
+
+        for apk in to_extract {
+            let name = apk.file_name().unwrap_or_default().to_string_lossy().into_owned();
+            let _ = app.emit("extraction-progress", ExtractionProgress {
+                current_file: format!("Extracting nested package: {}...", name),
+                progress: 0.0,
+            });
+            let _ = extract_zip(&apk, &out_path, app, &format!("[{}] ", name));
+            found_any = true;
+            // Delete it immediately after extraction
+            let _ = fs::remove_file(apk);
+        }
+        
+        if !found_any { break; }
+    }
+
+    // Final Cleanup: Delete any remaining .apk files in the output directory
+    let _ = app.emit("extraction-progress", ExtractionProgress {
+        current_file: "Performing final cleanup...".to_string(),
+        progress: 95.0,
     });
+    
+    cleanup_apks(&out_path);
 
-    if let Some(apk_to_extract) = inner_apk {
-        let _ = app.emit("extraction-progress", ExtractionProgress {
-            current_file: "Found inner APK, extracting assets...".to_string(),
-            progress: 0.0,
-        });
-        
-        // Extract inner APK into the same directory
-        extract_zip(apk_to_extract, out_path, app, "[Inner] ")?;
-        
-        // Optional: remove the inner apk after extraction to save space
-        // let _ = fs::remove_file(apk_to_extract);
-    }
+    // Delete the original APK file
+    let _ = fs::remove_file(file_path);
 
     let _ = app.emit("extraction-progress", ExtractionProgress {
         current_file: "Complete".to_string(),
@@ -75,4 +98,17 @@ pub fn extract_apk(file_path: &str, output_dir: &str, app: &AppHandle) -> Result
     });
 
     Ok(())
+}
+
+fn cleanup_apks(dir: &Path) {
+    if let Ok(entries) = fs::read_dir(dir) {
+        for entry in entries.flatten() {
+            let path = entry.path();
+            if path.is_dir() {
+                cleanup_apks(&path);
+            } else if path.extension().and_then(|s| s.to_str()) == Some("apk") {
+                let _ = fs::remove_file(path);
+            }
+        }
+    }
 }
