@@ -14,7 +14,8 @@
       {
         "title": "DC APK Toolkit",
         "width": 1024,
-        "height": 720
+        "height": 720,
+        "maximized": true
       }
     ],
     "security": {
