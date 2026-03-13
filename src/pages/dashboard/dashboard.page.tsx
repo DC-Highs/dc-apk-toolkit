@@ -2,7 +2,6 @@ import {
     LuSearch,
     LuDownload,
     LuBox,
-    LuFolderOpen,
     LuArrowRight,
     LuRefreshCw,
 } from "react-icons/lu"
@@ -56,7 +55,7 @@ export function Dashboard() {
                     </span>
                 </div>
                 <h1 className="text-5xl font-bold tracking-tight">
-                    Dragon City Toolkit
+                    DC APK Toolkit
                 </h1>
                 <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">
                     A clinical utility suite for Dragon City APK management, asset extraction, and version tracking.
@@ -127,17 +126,8 @@ export function Dashboard() {
                             Initiate Download
                             <LuArrowRight className="size-4 group-hover/btn:translate-x-1 transition-transform" />
                         </Button>
-                        <Button
-                            variant="outline"
-                            className="w-full justify-between h-10 px-4 text-sm font-medium"
-                            onClick={() => navigate("/files")}
-                        >
-                            Explore Local Assets
-                            <LuFolderOpen className="size-4" />
-                        </Button>
                     </CardContent>
                 </Card>
-
                 <Card className="relative overflow-hidden">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">

@@ -1,4 +1,4 @@
 export const configHelper = {
     galleryItemsPerPage: 18,
-    audioItemsPerPage: 10,
+    audioItemsPerPage: 5,
 }

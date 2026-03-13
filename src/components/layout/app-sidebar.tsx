@@ -1,8 +1,7 @@
 import {
     LuLayoutDashboard,
     LuDownload,
-    LuFolderOpen,
-    LuSettings,
+    LuGift,
     LuZap,
     LuChevronRight,
     LuImage,
@@ -15,6 +14,7 @@ import {
     Sidebar,
     SidebarContent,
     SidebarHeader,
+    SidebarFooter,
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
@@ -36,11 +36,6 @@ const menuItems = [
         path: "/downloader",
     },
     {
-        title: "Asset Explorer",
-        icon: LuFolderOpen,
-        path: "/files",
-    },
-    {
         title: "Image Gallery",
         icon: LuImage,
         path: "/images",
@@ -51,9 +46,9 @@ const menuItems = [
         path: "/audio",
     },
     {
-        title: "Settings",
-        icon: LuSettings,
-        path: "/settings",
+        title: "System Releases",
+        icon: LuGift,
+        path: "/releases",
     },
 ]
 
@@ -73,7 +68,7 @@ export function AppSidebar() {
                                 </div>
                                 <div className="flex flex-col gap-0.5 leading-none">
                                     <span className="font-medium">DC APK Toolkit</span>
-                                    <Badge className="text-xs" variant="outline">v{packageJson.version}</Badge>
+                                    <span className="text-[10px] text-muted-foreground opacity-60">Powered by DC Highs</span>
                                 </div>
                             </Link>
                         </SidebarMenuButton>
@@ -111,6 +106,12 @@ export function AppSidebar() {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
+            <SidebarFooter className="p-4 border-t border-sidebar-border/50">
+                 <div className="flex items-center justify-between opacity-40 hover:opacity-100 transition-opacity">
+                    <span className="text-[10px] font-mono tracking-tighter uppercase">Framework Node</span>
+                    <Badge variant="outline" className="text-[9px] h-4 px-1.5 font-bold">v{packageJson.version}</Badge>
+                 </div>
+            </SidebarFooter>
         </Sidebar>
     )
 }

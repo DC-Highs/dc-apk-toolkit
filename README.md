@@ -1,83 +1,71 @@
-# 🚀 Tauri + React Simple App Template
+# DC APK Toolkit 🐉
+[![Tauri v2](https://img.shields.io/badge/Tauri-v2-blue?logo=tauri)](https://tauri.app/)
+[![React 19](https://img.shields.io/badge/React-19-61dafb?logo=react)](https://react.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Template moderno e **opinado** para criação de aplicações desktop leves com Tauri, React e Vite. Focado em alta performance, produtividade e padronização.
-
-## 🛠 Tech Stack
-
-- **Framework Desktop:** [Tauri v2](https://tauri.app/)
-- **Frontend:** [React 19](https://react.dev/)
-- **Build Tool:** [Vite 7](https://vite.dev/)
-- **Linguagem:** [TypeScript](https://www.typescriptlang.org/) & [Rust](https://www.rust-lang.org/)
-- **Estilização:** [Tailwind CSS 4](https://tailwindcss.com/)
-- **Validação:** [Zod](https://zod.dev/)
-- **Formulários:** [React Hook Form](https://react-hook-form.com/)
-
-## 🏎 Começando
-
-1.  **Instalar dependências:**
-
-    ```bash
-    npm install
-    ```
-
-2.  **Iniciar ambiente de desenvolvimento:**
-
-    ```bash
-    npm run tauri dev
-    ```
-
-3.  **Gerar build de produção:**
-    ```bash
-    npm run tauri build
-    ```
-
-## 🎨 Interface e Shadcn/UI
-
-Para manter a aplicação leve e única em termos de design, este projeto foi projetado para utilizar o **shadcn/ui via CLI**.
-
-> [!IMPORTANT]
-> **NÃO** reutilize componentes e estilos de projetos anteriores manualmente. Para cada novo projeto, utilize o **shadcn/ui create** para fazer o setup inicial dos componentes base.
->
-> 🔗 **[https://ui.shadcn.com/create](https://ui.shadcn.com/create)**
-
-### 🎨 Ícones
-
-Utilizamos o **`react-icons`**, priorizando a biblioteca **Lucide** (`react-icons/lu`).
-
-## 📜 Convenções e Arquitetura
-
-Este projeto segue regras estritas de arquitetura e estilização.
-
-- **Identação:** 4 espaços.
-- **Ponto e vírgula:** Desativado (`semi: false`).
-- **Aspas:** Duplas (`"`) por padrão.
-- **Ordenação de Imports:** Automática por tamanho de linha (descendente).
-
-### Estrutura de Pastas
-
-- **`src/services`**: Camada de lógica e comunicação.
-- **`src/schemas`**: Validações Zod para formulários e dados.
-- **`src/hooks`**: Hooks customizados e reutilizáveis.
-    - **`src/hooks/forms`**: Hooks específicos para gerenciamento de estados de formulários.
-- **`src/types`**: Definições de tipos TypeScript globais.
-- **`src/components/providers`**: Centralização de contextos.
-- **`src/components/ui`**: Componentes base (Shadcn/UI).
-
-## 🧪 Testes e Cobertura (Backend)
-
-O backend (Rust) deve manter **100% de cobertura de testes**.
-
-- **Rodar testes:** `cargo test` (dentro da pasta `src-tauri`).
-- **Cobertura:** Utilizamos o `cargo-tarpaulin` para medição.
-    - Instalação: `cargo install cargo-tarpaulin`.
-    - Comando: `cargo tarpaulin --ignore-config-files --stdout`.
-
-## 🤖 Scripts Úteis
-
-- `npm run format`: Formata o código com Prettier.
-- `npm run lint`: Verifica erros com ESLint.
-- `npm run lint:fix`: Corrige automaticamente problemas de linting.
+A high-performance, clinical utility suite designed for **Dragon City** APK management, recursive asset extraction, and resource deep-diving. Built with **Tauri v2** and **React 19**, it provides a seamless desktop experience for developers and enthusiasts.
 
 ---
 
-Feito com ❤️ por Marcuth.
+## ✨ Key Features
+
+- **🚀 Atomic Acquisition**: Automated scraping and high-speed downloading of the latest Dragon City builds directly from trusted repositories.
+- **📂 Recursive Extraction**: Advanced extraction engine capable of unpacking nested APKs (like `android_asset_pack.apk`) and performing automatic cleanup of binary remnants.
+- **🖼️ Image Gallery**: High-performance viewer with base64 caching for high-resolution sprites and UI assets. Includes multi-format export capabilities.
+- **🎵 Audio Library**: Premium audio module with real-time waveform visualization, play/pause controls, and direct asset extraction.
+- **📡 System Releases**: Live integration with the [GitHub Mainframe](https://github.com/DC-Highs/dc-apk-toolkit) to fetch stable binary branches and development updates.
+
+---
+
+## 🛠️ Technology Stack
+
+- **Core Framework**: [Tauri v2](https://tauri.app/) (Rust-based security and speed)
+- **Frontend Engine**: [React 19](https://react.dev/) with [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite 7](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) + [Lucide Icons](https://lucide.dev/)
+
+---
+
+## 📥 Installation
+
+### Prerequisites
+- [Rust](https://www.rust-lang.org/tools/install)
+- [Node.js](https://nodejs.org/) (v20+)
+- [Tauri Dependencies](https://tauri.app/v1/guides/getting-started/prerequisites)
+
+### Cloning the Node
+```bash
+git clone https://github.com/DC-Highs/dc-apk-toolkit.git
+cd dc-apk-toolkit
+```
+
+### Setup & Development
+```bash
+npm install
+npm run tauri dev
+```
+
+---
+
+## 📦 Pipeline Commands
+
+| Command | Description |
+| :--- | :--- |
+| `npm run tauri build` | Initialize production binary build |
+| `npm run dev` | Start frontend development server (Vite) |
+| `npm run format` | Enforce code standard via Prettier |
+| `npm run lint` | Perform static analysis for errors |
+
+---
+
+## 🛡️ Binary Integrity
+The backend engine ensures that all extracted files have their original integrity maintained. APK remnants are automatically wiped post-extraction to optimize storage node health.
+
+## 🤝 Contribution
+DC Highs operates as an open-source initiative. Feel free to submit pull requests or report system anomalies in the [Issue Tracker](https://github.com/DC-Highs/dc-apk-toolkit/issues).
+
+---
+
+**Powered by [DC Highs](https://github.com/DC-Highs)**  
+*Clinical Utility for Dragon City Assets*

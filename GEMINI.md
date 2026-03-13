@@ -193,7 +193,7 @@ Before committing (if git is initialized):
 4. Verify no secrets or keys are committed
 
 Ótimo — com esse **AGENTS.md** já dá para entender bem o ambiente do projeto. 👍
-Para eu conseguir **iniciar o desenvolvimento do seu Dragon City Toolkit** dentro desse template **Tauri + React**, ainda preciso de algumas definições de produto e algumas informações técnicas.
+Para eu conseguir **iniciar o desenvolvimento do seu DC APK Toolkit** dentro desse template **Tauri + React**, ainda preciso de algumas definições de produto e algumas informações técnicas.
 
 Vou separar em **4 blocos** para ficar claro.
 
@@ -209,7 +209,7 @@ Primeiro precisamos definir:
 Exemplo:
 
 ```
-App Name: Dragon City Toolkit
+App Name: DC APK Toolkit
 Bundle ID: com.yourname.dragoncitytoolkit
 ```
 
@@ -342,7 +342,7 @@ Main View
 ### ou interface minimalista
 
 ```
-Dragon City Toolkit
+DC APK Toolkit
 
 [ Check Latest Version ]
 
