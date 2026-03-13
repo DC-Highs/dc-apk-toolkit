@@ -21,8 +21,11 @@
         "noFallthroughCasesInSwitch": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./src/*"]
-        }
+            "@/*": ["./src/*"],
+            "@public/*": ["./public/*"],
+            "@package.json": ["./package.json"]
+        },
+        "resolvePackageJsonImports": true
     },
     "include": ["src"],
     "references": [{ "path": "./tsconfig.node.json" }]

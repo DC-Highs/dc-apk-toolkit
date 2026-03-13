@@ -8,6 +8,9 @@
         "opener:default",
         "fs:default",
         "dialog:default",
-        "shell:default"
+        "shell:default",
+        "core:event:default",
+        "core:path:default",
+        "core:webview:default"
     ]
 }
