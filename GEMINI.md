@@ -453,3 +453,26 @@ interface ApkVersion {
 - **UI React pronta**
 
 Basicamente **o projeto já funcionando em ~300–400 linhas de código**.
+
+---
+
+# 📜 Version History
+
+## v0.1.0 - Initial Node Activation (2026-03-13)
+
+First stable release of the DC APK Toolkit.
+
+### 📦 Key Features
+- **Extraction Engine**: Recursive extraction for nested APKs (e.g., `android_asset_pack.apk`) and automatic cleanup of binary remnants.
+- **Acquisition**: Automated scraping and downloading of latest Dragon City versions.
+- **Image Gallery**: High-res sprite viewer with base64 caching and multi-format export.
+- **Audio Library**: Premium player with real-time waveform visualization and extraction.
+- **Releases Explorer**: Direct integration with GitHub API for version tracking.
+
+### 🖥️ UX & Identity
+- **Maximization**: Application starts maximized by default.
+- **Branding**: Sidebar with "Powered by DC Highs" and footer versioning.
+- **Scoped UI**: Modular architecture with page-scoped components.
+
+### 🛡️ Safety & Cleanup
+- Automated deletion of original APK files after successful extraction to save storage space.
