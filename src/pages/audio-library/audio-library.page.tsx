@@ -1,4 +1,4 @@
-import { AudioList } from "../../components/audio-list"
+import { AudioList } from "./components/audio-list"
 
 export function AudioLibraryPage() {
     return (
@@ -17,7 +17,6 @@ export function AudioLibraryPage() {
                     A comprehensive library of all sound effects, music tracks, and voice snippets found within the game files.
                 </p>
             </header>
-
             <AudioList />
         </div>
     )

@@ -40,4 +40,8 @@ export const apkService = {
     async searchFiles(path: string, extensions: string[]): Promise<FileEntry[]> {
         return await invoke<FileEntry[]>("search_files", { path, extensions })
     },
+    
+    async copyFile(source: string, destination: string): Promise<void> {
+        await invoke("copy_file", { source, destination })
+    },
 }

@@ -11,7 +11,7 @@ import {
 import { Button } from "../../components/ui/button"
 
 import { apkService } from "../../services/apk-service"
-import { FileBrowser } from "../../components/file-browser"
+import { FileBrowser } from "./components/file-browser"
 
 export function ExtractedFiles() {
     const openInExplorer = async () => {

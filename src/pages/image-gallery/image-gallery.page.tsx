@@ -1,4 +1,4 @@
-import { ImageGallery } from "../../components/image-gallery"
+import { ImageGallery } from "./components/image-gallery"
 
 export function ImageGalleryPage() {
     return (
@@ -17,7 +17,6 @@ export function ImageGalleryPage() {
                     Recursive indexing of all sprites, textures and atlas discovered in the extracted packages.
                 </p>
             </header>
-
             <ImageGallery />
         </div>
     )

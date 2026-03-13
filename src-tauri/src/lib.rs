@@ -2,7 +2,7 @@ pub mod models;
 pub mod services;
 pub mod commands;
 
-use crate::commands::apk::{get_latest_version, get_app_dir, download_apk, extract_package, open_folder, list_files, read_file, search_files};
+use crate::commands::apk::{get_latest_version, get_app_dir, download_apk, extract_package, open_folder, list_files, read_file, search_files, copy_file};
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -19,7 +19,8 @@ pub fn run() {
             open_folder,
             list_files,
             read_file,
-            search_files
+            search_files,
+            copy_file
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

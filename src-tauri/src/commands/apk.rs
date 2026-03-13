@@ -52,3 +52,10 @@ pub async fn read_file(path: String) -> Result<String, String> {
 pub async fn search_files(path: String, extensions: Vec<String>) -> Result<Vec<FileEntry>, String> {
     browser::find_files_recursive(&path, extensions)
 }
+
+#[command]
+pub async fn copy_file(source: String, destination: String) -> Result<(), String> {
+    std::fs::copy(source, destination)
+        .map(|_| ())
+        .map_err(|e| e.to_string())
+}
