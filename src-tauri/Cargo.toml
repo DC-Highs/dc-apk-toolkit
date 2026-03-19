@@ -31,7 +31,7 @@ scraper = "0.19"
 zip = "2"
 fs_extra = "1"
 walkdir = "2"
-dirs = "5"
+dirs = "6"
 futures-util = "0.3"
 base64 = "0.22"
 
